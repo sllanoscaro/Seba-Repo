@@ -5,10 +5,9 @@ public class Main {
         int[] mxn = leerDimensiones();
         validarDimensiones(mxn);
         int[][] matriz = crearMatriz(mxn);
-        mostrarMatriz(matriz);
         llenarMatriz(matriz);
         mostrarMatriz(matriz);
-
+        mostrarFila(matriz);
     }
 
     public static int[] leerDimensiones() {
@@ -25,7 +24,7 @@ public class Main {
         int columnas = mxn[1];
 
         if (filas > 0 && columnas > 0) {
-            System.out.print("Entrada válida. Matriz:\n");
+            System.out.print("Entrada válida. Matriz:");
             return true;
         } else {
             System.out.print("Entrada inválida.\n");
@@ -48,6 +47,7 @@ public class Main {
             System.out.println();
         }
     }
+
     public static int[][] llenarMatriz(int[][] matriz) {
         for (int filas = 0; filas < matriz.length; filas++) {
             for (int columnas = 0; columnas < matriz[filas].length; columnas++) {
@@ -57,6 +57,17 @@ public class Main {
         }
         return matriz;
     }
+
+    public static void mostrarFila(int[][] matriz) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Ingresa la fila que deseas visualizar: ");
+        int fila = input.nextInt();
+
+        for (int columnas = 0; columnas < matriz[fila - 1].length; columnas++) {
+            System.out.print(matriz[fila - 1][columnas] + " ");
+        }
+    }
 }
+
 
 
