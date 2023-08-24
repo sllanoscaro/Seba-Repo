@@ -8,6 +8,7 @@ public class Main {
         llenarMatriz(matriz);
         mostrarMatriz(matriz);
         mostrarFila(matriz);
+        matrizCero(matriz);
     }
 
     public static int[] leerDimensiones() {
@@ -24,7 +25,7 @@ public class Main {
         int columnas = mxn[1];
 
         if (filas > 0 && columnas > 0) {
-            System.out.print("Entrada válida. Matriz:");
+            System.out.print("Entrada válida. Matriz:\n");
             return true;
         } else {
             System.out.print("Entrada inválida.\n");
@@ -53,7 +54,6 @@ public class Main {
             for (int columnas = 0; columnas < matriz[filas].length; columnas++) {
                 matriz[filas][columnas] = (int) Math.floor(Math.random() * 10);
             }
-            System.out.println();
         }
         return matriz;
     }
@@ -66,6 +66,17 @@ public class Main {
         for (int columnas = 0; columnas < matriz[fila - 1].length; columnas++) {
             System.out.print(matriz[fila - 1][columnas] + " ");
         }
+    }
+    public static boolean matrizCero(int[][] matriz, ) {
+        int casos = 0;
+        for (int filas = 0; filas < matriz.length; filas++) {
+            for (int columnas = 0; columnas < matriz[filas].length; columnas++) {
+                if (matriz[filas][columnas] == 0) {
+                    casos++;
+                    System.out.print(casos);
+                }
+            }
+
     }
 }
 
