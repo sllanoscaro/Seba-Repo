@@ -2,13 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int[] mxn = leerDimensiones();
-        validarDimensiones(mxn);
-        int[][] matriz = crearMatriz(mxn);
-        llenarMatriz(matriz);
-        mostrarMatriz(matriz);
-        mostrarFila(matriz);
-        matrizCero(matriz);
+        menu();
     }
 
     public static int[] leerDimensiones() {
@@ -67,18 +61,44 @@ public class Main {
             System.out.print(matriz[fila - 1][columnas] + " ");
         }
     }
-    public static boolean matrizCero(int[][] matriz, ) {
+
+    public static boolean matrizCero(int[][] matriz, int[] mxn) {
         int casos = 0;
+        int total = mxn[0] * mxn[1];
+
         for (int filas = 0; filas < matriz.length; filas++) {
             for (int columnas = 0; columnas < matriz[filas].length; columnas++) {
                 if (matriz[filas][columnas] == 0) {
                     casos++;
-                    System.out.print(casos);
                 }
             }
+        }
+        return casos > total / 2;
+    }
+    public static void menu() {
+        Scanner input = new Scanner(System.in);
+        int[] mxn = leerDimensiones();
+        int[][] matriz = null;
 
+        if (validarDimensiones(mxn)) {
+            matriz = crearMatriz(mxn);
+            llenarMatriz(matriz);
+            mostrarMatriz(matriz);
+
+            System.out.println("Selecciona lo que quieres hacer:");
+            System.out.println("1. Buscar por fila en la matriz.");
+            System.out.println("2. Verificar si es una matriz cero.");
+
+            int opcion = input.nextInt();
+            if (opcion == 1) {
+                mostrarFila(matriz);
+            } else if (opcion == 2) {
+                if (matrizCero(matriz, mxn)) {
+                    System.out.print("Es una matriz cero.");
+                } else {
+                    System.out.print("No es una matriz cero.");
+                }
+            }
+        }
     }
 }
-
-
-
