@@ -2,16 +2,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 public class CalculadoraCientifica {
     public static void main(String[] args) {
-        sumaNum(entradaNum());
-        //restaNum(entradaNum());
-        //multiplicarNum(entradaNum());
-        //dividirNum(entradaNum());
-        //solucionesCuadratica(entradaCoeficientes());
-        //resolverSistema(creacionSistema());
-
-        //double[] punto1 = coordenadasPunto();
-        //double[] punto2 = coordenadasPunto();
-        //calcularEcRecta(punto1, punto2);
+        menu();
     }
 
     public static double[] entradaNum() {
@@ -204,5 +195,176 @@ public class CalculadoraCientifica {
         System.out.print("La ecuación de la recta es: y = " + pendiente + "x + " + termino_independiente);
         return pendiente;
     }
+    public static void menu() {
+        Scanner entrada = new Scanner(System.in);
+        int opcion;
 
+        do {
+            System.out.println("Menu:");
+            System.out.println("1. Operaciones aritméticas.");
+            System.out.println("2. Ecuación cuadrática.");
+            System.out.println("3. Figuras geométricas.");
+            System.out.println("4. Sistemas de ecuaciones lineales.");
+            System.out.println("5. Ecuación de la recta.");
+            System.out.println("6. Salir.");
+            System.out.print("Elija una opción: ");
+
+            opcion = entrada.nextInt();
+
+            switch (opcion) {
+                case 1 -> {
+                    do {
+                        System.out.println("Has seleccionado operaciones aritméticas.");
+                        System.out.println("1. Suma.");
+                        System.out.println("2. Resta.");
+                        System.out.println("3. Multipliación.");
+                        System.out.println("4. División.");
+                        System.out.println("5. Volver.");
+                        System.out.print("Elija una opción: ");
+
+                        opcion = entrada.nextInt();
+                        switch (opcion) {
+                            case 1 -> sumaNum(entradaNum());
+                            case 2 -> restaNum(entradaNum());
+                            case 3 -> multiplicarNum(entradaNum());
+                            case 4 -> dividirNum(entradaNum());
+                            case 5 -> {
+                            }
+                            default -> System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                        }
+                    } while (opcion != 5);
+                }
+                case 2 -> {
+                    System.out.println("Has seleccionado ecuación cuadrática.");
+                    solucionesCuadratica(entradaCoeficientes());
+                }
+                case 3 -> {
+                    do {
+                        System.out.println("Has seleccionado figuras geométricas.");
+                        System.out.println("1. Rectángulo.");
+                        System.out.println("2. Círculo.");
+                        System.out.println("3. Esfera.");
+                        System.out.println("4. Cubo.");
+                        System.out.println("5. Cono.");
+                        System.out.println("7. Volver.");
+                        System.out.print("Elija una opción: ");
+
+                        opcion = entrada.nextInt();
+                        switch (opcion) {
+                            case 1:
+                                do {
+                                    System.out.println("Has seleccionado Rectángulo.");
+                                    System.out.println("1. Perímetro.");
+                                    System.out.println("2. Área.");
+                                    System.out.println("3. Volver.");
+                                    opcion = entrada.nextInt();
+                                    switch (opcion) {
+                                        case 1 -> perimetroRectangulo(entradaNum());
+                                        case 2 -> areaRectangulo(entradaNum());
+                                        case 3 -> {
+                                        }
+                                    }
+                                } while (opcion != 3);
+                                break;
+                            case 2:
+                                do {
+                                    System.out.println("Has seleccionado Círculo.");
+                                    System.out.println("1. Perímetro.");
+                                    System.out.println("2. Área.");
+                                    System.out.println("3. Volver.");
+                                    opcion = entrada.nextInt();
+                                    switch (opcion) {
+                                        case 1 -> {
+                                            System.out.println("Ingrese el radio: ");
+                                            perimetroCirculo(entrada.nextDouble());
+                                        }
+                                        case 2 -> {
+                                            System.out.println("Ingrese el radio: ");
+                                            areaCirculo(entrada.nextDouble());
+                                        }
+                                        case 3 -> {
+                                        }
+                                    }
+                                } while (opcion != 3);
+                                break;
+                            case 3:
+                                do {
+                                    System.out.println("Has seleccionado Esfera.");
+                                    System.out.println("1. Volumen.");
+                                    System.out.println("2. Área.");
+                                    System.out.println("3. Volver.");
+                                    opcion = entrada.nextInt();
+                                    switch (opcion) {
+                                        case 1 -> {
+                                            System.out.println("Ingrese el radio: ");
+                                            volumenEsfera(entrada.nextDouble());
+                                        }
+                                        case 2 -> {
+                                            System.out.println("Ingrese el radio: ");
+                                            areaEsfera(entrada.nextDouble());
+                                        }
+                                        case 3 -> {
+                                        }
+                                    }
+                                } while (opcion != 3);
+                                break;
+                            case 4:
+                                do {
+                                    System.out.println("Has seleccionado Cubo.");
+                                    System.out.println("1. Volumen.");
+                                    System.out.println("2. Área.");
+                                    System.out.println("3. Volver.");
+                                    opcion = entrada.nextInt();
+                                    switch (opcion) {
+                                        case 1 -> {
+                                            System.out.println("Ingrese el radio: ");
+                                            volumenCubo(entrada.nextDouble());
+                                        }
+                                        case 2 -> {
+                                            System.out.println("Ingrese el radio: ");
+                                            areaCubo(entrada.nextDouble());
+                                        }
+                                        case 3 -> {
+                                        }
+                                    }
+                                } while (opcion != 3);
+                                break;
+                            case 5:
+                                do {
+                                    System.out.println("Has seleccionado Cono.");
+                                    System.out.println("1. Volumen.");
+                                    System.out.println("2. Área.");
+                                    System.out.println("3. Volver.");
+                                    opcion = entrada.nextInt();
+                                    switch (opcion) {
+                                        case 1 -> volumenCono(entradaNum());
+                                        case 2 -> areaCono(entradaNum());
+                                        case 3 -> {
+                                        }
+                                    }
+                                } while (opcion != 3);
+                            case 7:
+                                break;
+                            default:
+                                System.out.println("Opción no válida. Por favor, elija una opción válida.");
+                                break;
+                        }
+                    } while (opcion != 7);
+                }
+                case 4 -> {
+                    System.out.println("Has seleccionado sistemas de ecuaciones lineales.");
+                    resolverSistema(creacionSistema());
+                }
+                case 5 -> {
+                    System.out.println("Has seleccionado ecuación de la recta.");
+                    double[] punto1 = coordenadasPunto();
+                    double[] punto2 = coordenadasPunto();
+                    calcularEcRecta(punto1, punto2);
+                }
+                case 6 -> System.out.println("Saliendo del programa.");
+                default -> System.out.println("Opción no válida. Por favor, elija una opción válida.");
+            }
+        } while (opcion != 6);
+        entrada.close();
+    }
 }
