@@ -1,0 +1,15 @@
+I. En el problema se encuentran definidas dos clases, la clase Calculadora y la clase CarroCompra donde
+respectivamente Calculadora se encarga de operar suma y resta entre dos elementos y CarroCompra simula 
+mediante de una matriz de 2x5 un carrito de compras donde una fila representa la cantidad de un producto y la 
+otra su valor en pesos.
+
+II: Partiendo por la clase Calculadora, esta declara dos variables con ocultamiento privado y define dos
+constructores, uno que inicializa ambas variables con valor 0, y otro las cuáles asigna un determinado valor a 
+dichas variables.
+Después tenemos dos métodos que suman y multiplican respectivamente estos valores y retornan un valor del tipo int.
+Por último tenemos 2 métodos comúnmente denominados setter que acceden y alteran el valor de las variables según un argumento de entrada del tipo int.
+
+Por otro lado en la clase CarroCompra, se crea la matriz de 2x5 con ocultamiento privado y se define un único contructor que rellena la lista de la forma que la cantidad de productos sea uno de cada uno y el precio de cada uno sea de 1000 pesos.
+Luego se definen dos métodos con ocultamiento privado llamados calcularTotal() y subtotal() que son "dependientes" una de otra, ya que calcularTotal() llama a subtotal() que crea el objeto Calculadora() (ambas clases son igualmente dependientes) con sus respectivos parámetros de cantidad y precio e invoca al método multiplicar() de dicha clase. Por último calcularTotal() recorre la matriz y suma mediante un contador el precio total de los objetos del carrito.
+Para finalizar se define un método que muestra por pantalla el total de la compra.
+
