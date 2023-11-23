@@ -1,0 +1,13 @@
+Index: Entregas/src/Builder.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Entregas/src/Builder.java b/Entregas/src/Builder.java
+new file mode 100644
+--- /dev/null	(date 1697721111163)
++++ b/Entregas/src/Builder.java	(date 1697721111163)
+@@ -0,0 +1,3 @@
++public class Builder {
++
++}
